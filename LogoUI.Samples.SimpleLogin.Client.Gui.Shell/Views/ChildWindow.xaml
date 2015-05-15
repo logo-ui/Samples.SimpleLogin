@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:cal="http://www.caliburnproject.org"
-             xmlns:viewModels1="clr-namespace:LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels"
+             xmlns:viewModels="clr-namespace:LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance viewModels1:IChildWindowViewModelDescriptor}"
+             d:DataContext="{d:DesignInstance viewModels:ChildWindowViewModel}"
              d:DesignHeight="300" 
              d:DesignWidth="300">
 

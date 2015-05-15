@@ -4,14 +4,8 @@ using Caliburn.Micro;
 using LogoFX.UI.Commanding;
 
 namespace LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels
-{
-    public interface IChildWindowViewModelDescriptor
-    {
-        object ActiveItem { get; set; }
-        object Context { get; }
-    }
-
-    public sealed class ChildWindowViewModel : Conductor<object>, IChildWindowViewModelDescriptor
+{    
+    public sealed class ChildWindowViewModel : Conductor<object>
     {
         private readonly TaskCompletionSource<bool?> _taskCompletionSource;
 

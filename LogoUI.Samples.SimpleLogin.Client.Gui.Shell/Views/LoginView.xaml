@@ -9,7 +9,9 @@
              xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:markupExtensions="clr-namespace:LogoFX.UI.Views.Infra.MarkupExtensions;assembly=LogoFX.UI.Views.Infra"
              xmlns:behaviors="clr-namespace:LogoFX.UI.Views.Infra.Interactivity.Behaviors;assembly=LogoFX.UI.Views.Infra"
+             xmlns:viewModels="clr-namespace:LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels"
              mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModels:LoginViewModel}"
              d:DesignHeight="300"
              d:DesignWidth="300">
 

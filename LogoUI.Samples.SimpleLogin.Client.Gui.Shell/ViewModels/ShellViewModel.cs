@@ -12,20 +12,12 @@ using LogoUI.Samples.SimpleLogin.Client.Model.Contracts;
 using LogoUI.Samples.SimpleLogin.Client.Model.Shared;
 
 namespace LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels
-{
-    public interface IShellViewModelDescriptor
-    {
-        string CurrentUser { get; }
-        bool IsLoggedIn { get; }
-        ICommand LogoutCommand { get; }
-    }
-
+{    
 	[Singleton]
     public sealed class ShellViewModel : Conductor<IScreen>, 
         INavigationConductor, 
         IWindowManager,        
-        IShellCloseService,
-        IShellViewModelDescriptor
+        IShellCloseService
 	{
 	    private readonly ILoginService _loginService;
         private readonly INavigationService _navigationService;	    
@@ -33,9 +25,7 @@ namespace LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels
 	    public ShellViewModel(
             ILoginService loginService, 
             INavigationService navigationService)
-        {
-            //CacheViews = true;
-
+        {            
             _loginService = loginService;
             _navigationService = navigationService;
 
@@ -59,9 +49,7 @@ namespace LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels
             }
         }
 
-	    #region Properties
-
-        public override string DisplayName
+	    public override string DisplayName
 		{
 			get { return "Logo UI - Simple Login"; }
 			set {  }
@@ -75,17 +63,9 @@ namespace LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels
 	    public string CurrentUser
 	    {
 	        get { return UserContext.Current == null ? string.Empty : UserContext.Current.LoginName; }
-	    }        
+	    }
 
-		#endregion
-
-        #region Public Methods
-
-	    #endregion
-
-        #region Private Members
-
-        private void CurrentChanged(object sender, EventArgs eventArgs)
+	    private void CurrentChanged(object sender, EventArgs eventArgs)
         {
             NotifyOfPropertyChange(() => IsLoggedIn);
             NotifyOfPropertyChange(() => CurrentUser);            
@@ -108,11 +88,7 @@ namespace LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels
             Application.Current.Shutdown();
         }
 
-        #endregion
-
-        #region Overrides
-
-        protected override void OnActivate()
+	    protected override void OnActivate()
         {
             base.OnActivate();
             ScreenExtensions.TryActivate(ChildWindow);
@@ -122,7 +98,6 @@ namespace LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels
         protected override void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
-
             GC.Collect();
         }
 
@@ -150,22 +125,13 @@ namespace LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels
                 }
             });
         }
-        
-        #endregion
 
-        #region INavigationConductor
-
-        public void NavigateTo(object viewModel, object argument)
+	    public void NavigateTo(object viewModel, object argument)
         {
             ActivateItem((IScreen)viewModel);
         }
 
-        #endregion
-
-        #region IWindowManager
-
-        private ChildWindowViewModel _childWindow;
-
+	    private ChildWindowViewModel _childWindow;
         public ChildWindowViewModel ChildWindow
         {
             get { return _childWindow; }
@@ -221,8 +187,6 @@ namespace LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels
         {
             throw new NotImplementedException();
         }
-
-        #endregion        
 
 	    public void Close()
 	    {

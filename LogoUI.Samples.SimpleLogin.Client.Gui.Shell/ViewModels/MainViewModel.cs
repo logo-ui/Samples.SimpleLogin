@@ -6,15 +6,11 @@ using LogoFX.Practices.IoC;
 using LogoFX.UI.Navigation;
 
 namespace LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels
-{
-    public interface IMainViewModelDescriptor
-    {        
-    }
-
+{    
     [Singleton]
     [NavigationViewModel(ConductorType = typeof (ShellViewModel), IsSingleton = true)]
     [NavigationSynonym(typeof(IMainViewModel))]
-    public sealed class MainViewModel : Conductor<IScreen>, INavigationViewModel, IMainViewModel, IMainViewModelDescriptor
+    public sealed class MainViewModel : Conductor<IScreen>, INavigationViewModel, IMainViewModel
     {
         private readonly INavigationService _navigationService;
 

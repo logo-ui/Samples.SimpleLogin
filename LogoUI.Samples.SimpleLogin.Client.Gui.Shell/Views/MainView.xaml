@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:LogoUI.Samples.SimpleLogin.Client.Gui.Shell.ViewModels"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance viewModels:IMainViewModelDescriptor}"
+             d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
              d:DesignHeight="300"
              d:DesignWidth="300">
 
